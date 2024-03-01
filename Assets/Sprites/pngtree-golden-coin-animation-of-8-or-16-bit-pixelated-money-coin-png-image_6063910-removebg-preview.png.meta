@@ -1,0 +1,421 @@
+fileFormatVersion: 2
+guid: 563e940b17d89a541a4b53daf3834271
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 400
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 96
+        width: 67
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d423977486323d4193e23966859c40d
+      internalID: -1152502970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 96
+        width: 58
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30321a5ea93eeb8439cf99880559ba4c
+      internalID: -774376238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 96
+        width: 58
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa2bd019f3bc2784080152fbb4409f3f
+      internalID: -1638066322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 96
+        width: 43
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e2a05e95563cd4e93e905ac93607b8
+      internalID: 466419784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 96
+        width: 35
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89111791bedc0df4fa708daa7639d72f
+      internalID: -1313562529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 96
+        width: 33
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7022580e75a644c42904798e0e480247
+      internalID: 578812886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 96
+        width: 23
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 959351f72b3b3dc4fb91a24fd768522a
+      internalID: -1381859431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 96
+        width: 33
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dfeddc4942d4eb48b3aa0fab6b5ebd9
+      internalID: -428601945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 96
+        width: 36
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffce8909577568440ba59f99f379fd2a
+      internalID: -745379879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 96
+        width: 44
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 626bbccbe1a7e9544b4d5f5d4c85469f
+      internalID: -505805200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 96
+        width: 57
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43e03199b5bf9354c958657b27d52c24
+      internalID: 454329041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 96
+        width: 58
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2d02f6403d326b499fded3d39eafd6e
+      internalID: 275525649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 96
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763263bc93cbfa84a92271b05dff17e6
+      internalID: -701080875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_7: -428601945
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_11: 275525649
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_10: 454329041
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_8: -745379879
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_1: -774376238
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_5: 578812886
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_6: -1381859431
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_9: -505805200
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_2: -1638066322
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_3: 466419784
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_0: -1152502970
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_12: -701080875
+      pngtree-golden-coin-animation-of-8-or-16-bit-pixelated-money-coin-png-image_6063910-removebg-preview_4: -1313562529
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
