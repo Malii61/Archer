@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     private int _currentEnemyCount;
     private Transform _playerTransform;
     private bool _isSpawnable = false;
-
+    public int DiedEnemyCountTotal;
     private void Awake()
     {
         Instance = this;
@@ -85,5 +85,6 @@ public class EnemySpawner : MonoBehaviour
     {
         OnEnemyDied?.Invoke(this, diePosition);
         _currentEnemyCount--;
+        DiedEnemyCountTotal++;
     }
 }

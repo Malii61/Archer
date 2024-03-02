@@ -1,9 +1,8 @@
+using System;
 using UnityEngine;
 
 public class BlowgunDart : MonoBehaviour, IUsable
 {
-    private Vector2 _initialPos;
-    private Quaternion _initialRot;
     [SerializeField] private float dartForce = 3f;
     private Rigidbody2D _rb;
     private Transform _parent;
@@ -11,22 +10,28 @@ public class BlowgunDart : MonoBehaviour, IUsable
 
     private void Awake()
     {
-        _initialPos = transform.localPosition;
-        _initialRot = transform.localRotation;
         _parent = transform.parent;
         _rb = GetComponent<Rigidbody2D>();
+        _rb.isKinematic = true;
     }
+
 
     public void Use(float damage = 0)
     {
-        transform.SetParent(_parent);
         gameObject.SetActive(true);
-        transform.localPosition = _initialPos;
-        transform.localRotation = _initialRot;
+        transform.SetParent(_parent);
+        ResetPosition();
         transform.SetParent(null);
+        _rb.isKinematic = false;
         _rb.velocity = Vector2.zero;
         _rb.AddForce(transform.right * dartForce, ForceMode2D.Impulse);
         _damage = damage;
+    }
+
+    private void ResetPosition()
+    {
+        transform.localPosition = Vector2.zero;
+        transform.localRotation = Quaternion.identity;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

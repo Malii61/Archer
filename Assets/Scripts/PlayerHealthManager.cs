@@ -1,3 +1,4 @@
+using CandyCoded.HapticFeedback;
 using UnityEngine;
 
 public class PlayerHealthManager : MonoBehaviour, IDamagablePlayer
@@ -26,6 +27,9 @@ public class PlayerHealthManager : MonoBehaviour, IDamagablePlayer
         if (_isDied) return;
         UpdateHealth(-damage);
         Player.Instance.PlayerGetHit();
+        SoundManager.Instance.Play(Sound.PlayerHit);
+        CinemachineShake.Instance.ShakeCamera(.5f, .4f);
+        HapticFeedback.LightFeedback();
         if (_health <= 0)
         {
             Die();

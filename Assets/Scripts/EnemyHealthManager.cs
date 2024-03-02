@@ -31,6 +31,7 @@ public class EnemyHealthManager : MonoBehaviour, IDamagableEnemy
         _health -= damage;
         _healthBar.SetHealth(_health, _maxHealth);
         ParticleManager.Instance.Play(ParticleType.Blood, transform.position, Quaternion.identity, 1f);
+        SoundManager.Instance.Play(Sound.EnemyHit);
         hitAnimatable?.Animate();
         if (_health <= 0)
         {

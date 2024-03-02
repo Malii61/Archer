@@ -9,6 +9,7 @@ public class Fruit : Collectable
         ItemDropManager.Instance.FruitCollected(healAmount);
         GetComponent<Animator>().Play(COLLECTED);
         releaseDelay = .5f;
+        SoundManager.Instance.Play(Sound.Fruit);
         base.Collect();
     }
 }

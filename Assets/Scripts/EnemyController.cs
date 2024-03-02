@@ -36,6 +36,7 @@ public abstract class EnemyController : MonoBehaviour, IFearable
         _attackSpeed = initializationArgs.GetAttackSpeed();
         _attackTimer = _attackSpeed;
         GetComponent<EnemyHealthManager>().Initialize(initializationArgs.GetMaxHealth(), enemyType);
+        _rb.velocity = Vector2.zero;
     }
 
     private void Update()

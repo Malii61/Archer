@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
+
 public class PlayerMovementController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float _movementSpeed;
     [SerializeField] private PlayerAnimator _animator;
-    private float _speed;
 
     private void Awake()
     {
@@ -15,11 +16,13 @@ public class PlayerMovementController : MonoBehaviour
     {
         _movementSpeed = Player.Instance.GetPlayerMoveSpeed();
     }
+
     // Update is called once per frame
     void Update()
     {
         Move();
     }
+
     private void Move()
     {
         var moveAmount = GameInput.Instance.GetMovementVectorNormalized() * (_movementSpeed * Time.deltaTime);
@@ -27,4 +30,5 @@ public class PlayerMovementController : MonoBehaviour
         _animator.SetSpeed(moveAmount.magnitude);
         rb.MovePosition(rb.position + moveAmount);
     }
+
 }
