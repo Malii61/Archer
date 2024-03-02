@@ -4,7 +4,7 @@ using UnityEngine;
 public class FirebaseSetup : MonoBehaviour
 {
     private Firebase.FirebaseApp app;
-    // Start is called before the first frame update
+    public bool IsFirebaseConnected = false;
     void Start()
     {
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
@@ -15,7 +15,7 @@ public class FirebaseSetup : MonoBehaviour
                 // Create and hold a reference to your FirebaseApp,
                 // where app is a Firebase.FirebaseApp property of your application class.
                 app = Firebase.FirebaseApp.DefaultInstance;
-
+                IsFirebaseConnected = true;
                 // Set a flag here to indicate whether Firebase is ready to use by your app.
             }
             else
@@ -26,4 +26,5 @@ public class FirebaseSetup : MonoBehaviour
             }
         });
     }
+    
 }
