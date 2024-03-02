@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "361935488129",
+    "project_id": "archer-f0010",
+    "storage_bucket": "archer-f0010.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361935488129:android:8b96e2d85cc3cd92a9b980",
+        "android_client_info": {
+          "package_name": "com.Mali.Archer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7AvJJX_7HD2qpfqkWbt9WE4E5Y36nLBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
