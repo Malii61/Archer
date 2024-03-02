@@ -33,11 +33,10 @@ public class Arrow : MonoBehaviour, IReleasable
     {
         if(_isTriggered) return;
         
-        if (other.transform.TryGetComponent(out IDamagable iDamagable))
+        if (other.transform.TryGetComponent(out IDamagableEnemy iDamagableEnemy))
         {
-            if (other.transform.TryGetComponent(out Player player)) return;
             _isTriggered = true;
-            iDamagable.GetDamage(_damage);
+            iDamagableEnemy.GetDamage(_damage);
             Release();
         }
     }

@@ -1,10 +1,16 @@
 using System;
+
 public class ActiveSkillHandler : SkillHandler
 {
     protected override void Start()
     {
         base.Start();
-        GameInput.Instance.OnAbility1Performed += OnActiveSkillPerformed;
+        GameInput.Instance.OnActiveSkillPerformed += OnActiveSkillPerformed;
+    }
+
+    private void OnDestroy()
+    {
+        GameInput.Instance.OnActiveSkillPerformed -= OnActiveSkillPerformed;
     }
 
     private void OnActiveSkillPerformed(object sender, EventArgs e)
@@ -12,7 +18,7 @@ public class ActiveSkillHandler : SkillHandler
         if (cooldown <= 0)
         {
             UseSkill();
-        }    
+        }
     }
 
     protected override SkillSO GetSkill()

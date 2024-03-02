@@ -25,7 +25,7 @@ public class SkillSlotsUI : MonoBehaviour
 
     private void Start()
     {
-        activeSkillBtn.onClick.AddListener(() => GameInput.Instance.PerformAbility1());
+        activeSkillBtn.onClick.AddListener(() => GameInput.Instance.PerformActiveSkill());
     }
 
     #region public

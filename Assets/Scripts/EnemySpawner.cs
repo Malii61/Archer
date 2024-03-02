@@ -13,23 +13,37 @@ public class EnemySpawner : MonoBehaviour
     private float _spawnerTimer;
     private int _currentEnemyCount;
     private Transform _playerTransform;
+    private bool _isSpawnable = true;
 
     private void Awake()
     {
         Instance = this;
     }
+
     private void Start()
     {
         CreateEnemyPool();
         _playerTransform = Player.Instance.transform;
+        GameManager.Instance.OnStageChanged += OnStageChanged;
     }
+
+    private void OnStageChanged(object sender, GameManager.GameState e)
+    {
+        if (e == GameManager.GameState.GameOver)
+        {
+            _isSpawnable = false;
+        }
+    }
+
     private void CreateEnemyPool()
     {
         foreach (var enemySO in _allEnemiesSo.Enemies)
         {
-            PoolHandler.Instance.Create(enemySO.enemyPrefab, PoolHandler.Instance.GetEnemyPoolType(enemySO.enemyType), 10, maxEnemyCount);
+            PoolHandler.Instance.Create(enemySO.enemyPrefab, PoolHandler.Instance.GetEnemyPoolType(enemySO.enemyType),
+                10, maxEnemyCount);
         }
     }
+
     private EnemySO GetRandomEnemy()
     {
         return _allEnemiesSo.Enemies[Random.Range(0, _allEnemiesSo.Enemies.Count)];
@@ -37,6 +51,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (!_isSpawnable) return;
+
         _spawnerTimer -= Time.deltaTime;
         if (_spawnerTimer <= 0f && _currentEnemyCount < maxEnemyCount)
         {

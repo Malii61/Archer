@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour, IFearable
+public abstract class EnemyController : MonoBehaviour, IFearable
 {
-    private Transform _target;
+    protected Transform _target;
     private Rigidbody2D _rb;
     private float _attackRange;
-    private float _damage;
+    protected float _damage;
     private float _moveSpeed;
     private float _attackSpeed;
 
@@ -16,6 +16,11 @@ public class EnemyController : MonoBehaviour, IFearable
     private float _fearDuration;
     private Transform _fearGhost;
 
+    internal int _currentSpeed;
+    
+    //improve movement visual
+    private float _walkableTimer;
+    private readonly float _walkableTimerMax = .5f;
     private void Awake()
     {
         _target = Player.Instance.transform;
@@ -32,7 +37,7 @@ public class EnemyController : MonoBehaviour, IFearable
         GetComponent<EnemyHealthManager>().Initialize(initializationArgs.GetMaxHealth(), enemyType);
     }
 
-    void Update()
+    private void Update()
     {
         CheckFear();
         if (_target != null)
@@ -43,21 +48,31 @@ public class EnemyController : MonoBehaviour, IFearable
                 if (_attackTimer <= 0)
                 {
                     // Attack
-                    _target.GetComponent<IDamagable>().GetDamage(_damage);
+                    Attack();
                     _attackTimer = _attackSpeed;
                 }
 
+                _walkableTimer = _walkableTimerMax;    
+                _currentSpeed = 0;
                 return;
             }
 
+            if (_walkableTimer > 0)
+            {
+                _walkableTimer -= Time.deltaTime;
+                return;
+            }
             var currentPosition = transform.position;
             Vector3 direction = _target.position - currentPosition;
             direction.Normalize();
             direction = _isFeared ? -direction : direction;
+            _currentSpeed = _isFeared ? -1 : 1;
             Vector3 newPosition = currentPosition + direction * (_moveSpeed * Time.deltaTime);
             _rb.MovePosition(newPosition);
         }
     }
+
+    protected abstract void Attack();
 
     private void CheckFear()
     {

@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-
 public class PlayerMovementController : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -17,13 +15,11 @@ public class PlayerMovementController : MonoBehaviour
     {
         _movementSpeed = Player.Instance.GetPlayerMoveSpeed();
     }
-
     // Update is called once per frame
     void Update()
     {
         Move();
     }
-
     private void Move()
     {
         var moveAmount = GameInput.Instance.GetMovementVectorNormalized() * (_movementSpeed * Time.deltaTime);

@@ -9,6 +9,7 @@ public enum PoolType
 
     // Enemies
     Spike,
+    Blowgunner,
 
     //Collectables
     Coin,
@@ -79,6 +80,8 @@ public class PoolHandler : MonoBehaviour
             default:
             case EnemyType.Spike:
                 return PoolType.Spike;
+            case EnemyType.Blowgunner:
+                return PoolType.Blowgunner;
         }
     }
 

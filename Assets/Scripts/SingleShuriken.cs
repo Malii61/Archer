@@ -1,14 +1,14 @@
 using System;
 using UnityEngine;
 
-public class SingleShuriken : MonoBehaviour
+public class SingleShuriken : MonoBehaviour,IUsable
 {
     private Vector2 _initialPosition;
     private Quaternion _initialRotation;
     private Rigidbody2D _rb;
     private float _damage;
     private Transform _parent;
-
+    [SerializeField] private float forceAmount;
     private void Awake()
     {
         _initialPosition = transform.localPosition;
@@ -16,8 +16,7 @@ public class SingleShuriken : MonoBehaviour
         _parent = transform.parent;
         _rb = GetComponent<Rigidbody2D>();
     }
-
-    public void Throw(float force, float hitDamage)
+    public void Use(float damage = 0)
     {
         transform.SetParent(_parent);
         gameObject.SetActive(true);
@@ -25,18 +24,17 @@ public class SingleShuriken : MonoBehaviour
         transform.localRotation = _initialRotation;
         transform.SetParent(null);
         _rb.velocity = Vector2.zero;
-        _rb.AddForce(transform.right * force, ForceMode2D.Impulse);
-        _damage = hitDamage;
+        _rb.AddForce(transform.right * forceAmount, ForceMode2D.Impulse);
+        _damage = damage;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out IDamagable iDamagable))
+        if (other.TryGetComponent(out IDamagableEnemy iDamagableEnemy))
         {
-            if (other.TryGetComponent(out Player player)) return;
-
-            Debug.Log("hit");
-            iDamagable.GetDamage(_damage);
+            iDamagableEnemy.GetDamage(_damage);
             gameObject.SetActive(false);
         }
     }
+
+ 
 }

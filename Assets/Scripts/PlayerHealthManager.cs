@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerHealthManager : MonoBehaviour, IDamagable
+public class PlayerHealthManager : MonoBehaviour, IDamagablePlayer
 {
     private float _maxHealth;
     private float _health;
@@ -25,8 +25,6 @@ public class PlayerHealthManager : MonoBehaviour, IDamagable
     {
         if (_isDied) return;
         UpdateHealth(-damage);
-        Player.Instance.PlayerGetHit();
-
         if (_health <= 0)
         {
             Die();
@@ -40,8 +38,9 @@ public class PlayerHealthManager : MonoBehaviour, IDamagable
         _healthBar.SetHealth(_health, _maxHealth);
     }
 
-    public void Die()
+    private void Die()
     {
         GameManager.Instance.UpdateState(GameManager.GameState.GameOver);
+        Destroy(gameObject);
     }
 }

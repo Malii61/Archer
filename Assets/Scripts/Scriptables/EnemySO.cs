@@ -3,6 +3,7 @@ using UnityEngine;
 public enum EnemyType
 {
     Spike,
+    Blowgunner,
 }
 
 [CreateAssetMenu()]
