@@ -1,23 +1,23 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
-    [SerializeField] private Transform content;
+     [SerializeField] private Transform statisticsContent;
     [SerializeField] private TextMeshProUGUI coinTMP, killedEnemyTMP, survivedTimeTMP;
     [SerializeField] private Button tryAgainBtn, backMenuBtn;
     private int coinCount, killedEnemyCount;
-
+    [SerializeField] private TextMeshProUGUI youDiedTMP;
     private void Start()
     {
-        GameManager.Instance.OnStageChanged += OnStageChanged;
         ItemDropManager.Instance.OnCoinCollected += OnCoinCollected;
         EnemySpawner.Instance.OnEnemyDied += OnEnemyDied;
         tryAgainBtn.onClick.AddListener(() => SceneLoader.LoadScene(SceneLoader.Scene.GameScene));
         backMenuBtn.onClick.AddListener(() => SceneLoader.LoadScene(SceneLoader.Scene.MenuScene));
-        Hide();
+        HideStatictics();
     }
 
     private void OnCoinCollected(object sender, EventArgs e)
@@ -29,23 +29,20 @@ public class GameOverUI : MonoBehaviour
     {
         killedEnemyCount++;
     }
-
-    private void OnStageChanged(object sender, GameManager.GameState e)
+    public void Show()
     {
-        if (e == GameManager.GameState.GameOver)
-        {
-            Show();
-        }
+        youDiedTMP.enabled = true;
+        Invoke(nameof(ShowStatictics),1.5f);
+    }
+    private void HideStatictics()
+    {
+        statisticsContent.gameObject.SetActive(false);
     }
 
-    private void Hide()
+    private void ShowStatictics()
     {
-        content.gameObject.SetActive(false);
-    }
-
-    private void Show()
-    {
-        content.gameObject.SetActive(true);
+        youDiedTMP.enabled = false;
+        statisticsContent.gameObject.SetActive(true);
         string survivedTimeText = Time.time < 60
             ? "00:" + Mathf.Round(Time.time)
             : (Time.time < 600

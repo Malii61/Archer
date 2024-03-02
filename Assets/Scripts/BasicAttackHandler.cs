@@ -19,6 +19,7 @@ public class BasicAttackHandler : MonoBehaviour
 
     private void Update()
     {
+        if(!GameManager.Instance.isGameStarted) return;
         _attackTimer -= Time.deltaTime;
         if (_attackTimer <= 0)
         {

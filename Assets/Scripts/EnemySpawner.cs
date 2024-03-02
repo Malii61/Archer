@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     private float _spawnerTimer;
     private int _currentEnemyCount;
     private Transform _playerTransform;
-    private bool _isSpawnable = true;
+    private bool _isSpawnable = false;
 
     private void Awake()
     {
@@ -29,10 +29,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnStageChanged(object sender, GameManager.GameState e)
     {
-        if (e == GameManager.GameState.GameOver)
+        _isSpawnable = e switch
         {
-            _isSpawnable = false;
-        }
+            GameManager.GameState.GameOver => false,
+            GameManager.GameState.Started => true,
+            _ => _isSpawnable
+        };
     }
 
     private void CreateEnemyPool()
@@ -60,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
             _currentEnemy = PoolHandler.Instance.Get(PoolHandler.Instance.GetEnemyPoolType(enemySO.enemyType));
 
             SetEnemyPosition();
-            while (Vector2.Distance(_currentEnemy.position, _playerTransform.position) < 2f)
+            while (Vector2.Distance(_currentEnemy.position, _playerTransform.position) < 1.5f)
             {
                 SetEnemyPosition();
             }
@@ -76,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SetEnemyPosition()
     {
-        _currentEnemy.position = Utils.GetRandomPositionAtCertainPoint(_playerTransform.position, 6f);
+        _currentEnemy.position = Utils.GetRandomPositionAtCertainPoint(_playerTransform.position, 4f);
     }
 
     public void EnemyDied(Vector2 diePosition)

@@ -7,7 +7,6 @@ public abstract class SkillHandler : MonoBehaviour
     private SkillSO _skill;
     private IUsable _iUsable;
     private Transform aimTransform;
-
     protected virtual void Start()
     {
         aimTransform = GetComponent<PlayerAimController>().aimTransform;
@@ -17,8 +16,11 @@ public abstract class SkillHandler : MonoBehaviour
             PoolHandler.Instance.GetSkillPoolType(_skill.skillId));
         SkillSlotsUI.Instance.InitializeImageSprite(_skill.skillType, _skill.skillId);
     }
+
     protected virtual void Update()
     {
+        if(!GameManager.Instance.isGameStarted) return;
+        
         cooldown -= Time.deltaTime;
         SkillSlotsUI.Instance.SetFillAmount(_skill.skillType, cooldown / _skill.cooldown);
     }

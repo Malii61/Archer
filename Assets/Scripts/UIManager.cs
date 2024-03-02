@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private CountdownUI countdownUI;
+    [SerializeField] private GameOverUI gameOverUI;
+    [SerializeField] private Transform mobileInputTransform;
+
     void Start()
     {
-        
+        GameManager.Instance.OnStageChanged += OnStageChanged;
+        mobileInputTransform.gameObject.SetActive(Application.platform == RuntimePlatform.Android);
+        countdownUI.Show();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnStageChanged(object sender, GameManager.GameState e)
     {
-        
+        if (e == GameManager.GameState.GameOver)
+        {
+            gameOverUI.Show();
+        }
     }
 }

@@ -21,6 +21,9 @@ public enum PoolType
     
     //Skill Effects
     FearGhost,
+    
+    //Effects
+    Blood,
 }
 
 public class PoolHandler : MonoBehaviour

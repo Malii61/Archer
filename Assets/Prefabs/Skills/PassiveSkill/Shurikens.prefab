@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27253ded606d9b4287354c6bab21fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 3
+  forceAmount: 3.5
 --- !u!1 &2000701483381899007
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27253ded606d9b4287354c6bab21fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 3
+  forceAmount: 3.5
 --- !u!1 &2799287039652755393
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27253ded606d9b4287354c6bab21fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 3
+  forceAmount: 3.5
 --- !u!1 &3394622048096748105
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27253ded606d9b4287354c6bab21fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 3
+  forceAmount: 3.5
 --- !u!1 &4199879902290364654
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27253ded606d9b4287354c6bab21fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 3
+  forceAmount: 3.5
 --- !u!1 &4199879902337276213
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27253ded606d9b4287354c6bab21fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 3
+  forceAmount: 3.5
 --- !u!1 &4199879902389574469
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27253ded606d9b4287354c6bab21fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 3
+  forceAmount: 3.5
 --- !u!1 &4199879902618353261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27253ded606d9b4287354c6bab21fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 3
+  forceAmount: 3.5
 --- !u!1 &7882763924117299198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,4 +1295,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27253ded606d9b4287354c6bab21fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 3
+  forceAmount: 3.5

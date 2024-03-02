@@ -25,6 +25,7 @@ public class PlayerHealthManager : MonoBehaviour, IDamagablePlayer
     {
         if (_isDied) return;
         UpdateHealth(-damage);
+        Player.Instance.PlayerGetHit();
         if (_health <= 0)
         {
             Die();

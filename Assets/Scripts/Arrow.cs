@@ -7,6 +7,7 @@ public class Arrow : MonoBehaviour, IReleasable
     private bool _isReleased;
     private float _damage;
     private bool _isTriggered;
+    private float _lifetime;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,11 +18,21 @@ public class Arrow : MonoBehaviour, IReleasable
         _isReleased = false;
         _damage = damage;
         _isTriggered = false;
-        Invoke(nameof(Release), lifeTime);
+        _lifetime = lifeTime;
         rb.AddForce(transform.right * forceAmount, ForceMode2D.Impulse);
     }
 
-    public void Release()
+    private void Update()
+    {
+        if (_lifetime > 0)
+        {
+            _lifetime -= Time.deltaTime;
+            return;
+        }
+        Release();
+    }
+
+    public void Release(float releaseDelay = 0f)
     {
         if (_isReleased) return;
 
@@ -31,8 +42,8 @@ public class Arrow : MonoBehaviour, IReleasable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(_isTriggered) return;
-        
+        if (_isTriggered) return;
+
         if (other.transform.TryGetComponent(out IDamagableEnemy iDamagableEnemy))
         {
             _isTriggered = true;

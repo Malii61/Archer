@@ -5,9 +5,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public event EventHandler<GameState> OnStageChanged;
+    public bool isGameStarted = false;
     public enum GameState
     {
-        Playing,
+        Started,
         GameOver,
     }
     private void Awake()
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     }
     public void UpdateState(GameState state)
     {
+        if (state == GameState.Started) isGameStarted = true;
+        
         OnStageChanged?.Invoke(this, state);
     }
 }

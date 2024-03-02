@@ -8,10 +8,6 @@ public class MobileMoveInput : MonoBehaviour, IDragHandler, IPointerDownHandler,
     [Range(0, 2)] public float handleLimit = 1f;
     public float movementRetarderValue = 2f;
     public static Vector2 movementInput = Vector2.zero;
-    private void Start()
-    {
-        gameObject.SetActive(Application.platform == RuntimePlatform.Android);
-    }
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 joyDirection = eventData.position -

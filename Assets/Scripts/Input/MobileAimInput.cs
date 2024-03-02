@@ -8,11 +8,6 @@ public class MobileAimInput : MonoBehaviour, IDragHandler, IPointerDownHandler, 
     [Range(0, 2)] public float handleLimit = 1f;
     private Vector2 input = Vector2.zero;
     public static float AimAngle;
-    private void Start()
-    {
-        gameObject.SetActive(Application.platform == RuntimePlatform.Android);
-    }
-
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 joyDirection = eventData.position -

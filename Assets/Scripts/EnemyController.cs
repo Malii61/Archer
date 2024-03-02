@@ -17,10 +17,11 @@ public abstract class EnemyController : MonoBehaviour, IFearable
     private Transform _fearGhost;
 
     internal int _currentSpeed;
-    
+
     //improve movement visual
     private float _walkableTimer;
     private readonly float _walkableTimerMax = .5f;
+
     private void Awake()
     {
         _target = Player.Instance.transform;
@@ -52,16 +53,17 @@ public abstract class EnemyController : MonoBehaviour, IFearable
                     _attackTimer = _attackSpeed;
                 }
 
-                _walkableTimer = _walkableTimerMax;    
+                _walkableTimer = _walkableTimerMax;
                 _currentSpeed = 0;
                 return;
             }
 
-            if (_walkableTimer > 0)
+            if (_walkableTimer > 0 && !_isFeared)
             {
                 _walkableTimer -= Time.deltaTime;
                 return;
             }
+
             var currentPosition = transform.position;
             Vector3 direction = _target.position - currentPosition;
             direction.Normalize();

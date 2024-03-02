@@ -1,4 +1,4 @@
 public interface IReleasable
 {
-    public void Release();
+    public void Release(float releaseDelay = 0f);
 }
