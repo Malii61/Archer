@@ -1,4 +1,5 @@
 public interface IFearable
 {
-    public void Fear(float duration);
+    // Causes the object to enter a fearful state for the specified duration.
+    void Fear(float duration);
 }

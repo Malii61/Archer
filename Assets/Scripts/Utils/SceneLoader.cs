@@ -4,6 +4,7 @@ public static class SceneLoader
     {
         MenuScene,
         GameScene,
+        OnlineGameScene,
     }
 
     public static void LoadScene(Scene scene)

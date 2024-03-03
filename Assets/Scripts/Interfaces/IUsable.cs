@@ -1,4 +1,5 @@
 public interface IUsable
 {
-    public void Use(float damage = 0);
+    // Initiates the usage of the object, optionally specifying damage.
+    void Use(float damage = 0);
 }

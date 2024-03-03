@@ -48,19 +48,19 @@ MonoBehaviour:
   sounds:
   - audioClips:
     - {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
-    soundScale: 0.15
+    soundScale: 0.2
     sound: 0
   - audioClips:
     - {fileID: 8300000, guid: ba39bf8baf6d13046889b2d64822381a, type: 3}
-    soundScale: 0.3
+    soundScale: 0.5
     sound: 2
   - audioClips:
     - {fileID: 8300000, guid: c5cb2ac29e89dbf43a9b644caaad45e6, type: 3}
-    soundScale: 0.3
+    soundScale: 0.5
     sound: 1
   - audioClips:
     - {fileID: 8300000, guid: 1ed8fb76fc64e4e46847348138782234, type: 3}
-    soundScale: 0.15
+    soundScale: 0.2
     sound: 3
 --- !u!82 &4839953969596037764
 AudioSource:

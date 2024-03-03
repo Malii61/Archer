@@ -1,4 +1,5 @@
 public interface IOneStageAnimatable
 {
-    public void Animate();
+    // Initiates a single-stage animation.
+    void Animate();
 }

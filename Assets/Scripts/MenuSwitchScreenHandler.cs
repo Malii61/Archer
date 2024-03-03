@@ -6,8 +6,8 @@ using UnityEngine;
 [Serializable]
 public class MenuArgs
 {
-    public Menu menu;
-    public Transform menuTransform;
+    public Menu menu; // Enum representing the type of menu.
+    public Transform menuTransform; // Transform of the associated menu.
 }
 
 public enum Menu
@@ -25,8 +25,8 @@ public enum Menu
 
 public class MenuSwitchScreenHandler : MonoBehaviour
 {
-    public static MenuSwitchScreenHandler Instance { get; private set; }
-    [SerializeField] private List<MenuArgs> menus = new();
+    public static MenuSwitchScreenHandler Instance { get; private set; } 
+    [SerializeField] private List<MenuArgs> menus = new(); 
     private Transform lastClosedScreen;
 
     private void Awake()
@@ -38,29 +38,27 @@ public class MenuSwitchScreenHandler : MonoBehaviour
 
     private void Start()
     {
-        lastOpenScreen = menus.FirstOrDefault(x => x.menu == Menu.MainMenu).menuTransform;
+        lastOpenScreen = menus.FirstOrDefault(x => x.menu == Menu.MainMenu).menuTransform; // Set the initial open screen to the main menu.
     }
 
     public void Open(Menu menu)
     {
-        Debug.Log("opened" + menu.ToString());
-        Transform t = menus.FirstOrDefault(x => x.menu == menu).menuTransform;
-        t.gameObject.SetActive(true);
+        Transform t = menus.FirstOrDefault(x => x.menu == menu).menuTransform; // Get the Transform of the specified menu.
+        t.gameObject.SetActive(true); 
         Close();
-        lastOpenScreen = t;
+        lastOpenScreen = t; 
     }
 
     public void Close()
     {
         if (lastOpenScreen != null)
         {
-            lastOpenScreen.gameObject.SetActive(false);
-            Debug.Log("closed" + lastOpenScreen.name);
+            lastOpenScreen.gameObject.SetActive(false); 
         }
     }
 
     public void BackToOnlineLobby()
     {
-        Open(Menu.OnlineLobby);
+        Open(Menu.OnlineLobby); 
     }
 }
