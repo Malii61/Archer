@@ -1,4 +1,5 @@
 using System;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,11 +11,17 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private Button tryAgainBtn, backMenuBtn, showLeaderboardBtn;
     private int coinCount, killedEnemyCount;
     [SerializeField] private TextMeshProUGUI youDiedTMP;
+    [SerializeField] private TextMeshProUGUI youWinTMP;
+    private PhotonView PV;
 
     private void Start()
     {
-        ItemDropManager.Instance.OnCoinCollected += OnCoinCollected;
-        EnemySpawner.Instance.OnEnemyDied += OnEnemyDied;
+        if (!GameManager.Instance.isGameOnline)
+        {
+            ItemDropManager.Instance.OnCoinCollected += OnCoinCollected;
+            EnemySpawner.Instance.OnEnemyDied += OnEnemyDied;
+        }
+
         tryAgainBtn.onClick.AddListener(() => SceneLoader.LoadScene(SceneLoader.Scene.GameScene));
         backMenuBtn.onClick.AddListener(() => SceneLoader.LoadScene(SceneLoader.Scene.MenuScene));
         showLeaderboardBtn.onClick.AddListener(() => UIManager.Instance.ShowLeaderboard());
@@ -34,7 +41,20 @@ public class GameOverUI : MonoBehaviour
     public void Show()
     {
         youDiedTMP.enabled = true;
-        Invoke(nameof(ShowStatictics), 1.5f);
+        if (!GameManager.Instance.isGameOnline)
+        {
+            Invoke(nameof(ShowStatictics), 1.5f);
+        }
+        else
+        {
+            GetComponent<PhotonView>().RPC(nameof(ShowWinTmpRPC), RpcTarget.Others);
+        }
+    }
+
+    [PunRPC]
+    private void ShowWinTmpRPC()
+    {
+        youWinTMP.enabled = true;
     }
 
     private void HideStatictics()
@@ -48,7 +68,7 @@ public class GameOverUI : MonoBehaviour
         {
             ADController.Instance.ShowInterstitial();
         }
-        
+
         youDiedTMP.enabled = false;
         statisticsContent.gameObject.SetActive(true);
         string survivedTimeText = Time.time < 60

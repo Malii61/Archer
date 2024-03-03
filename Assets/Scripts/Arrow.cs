@@ -1,4 +1,5 @@
 using System;
+using Photon.Pun;
 using UnityEngine;
 
 public class Arrow : MonoBehaviour, IReleasable
@@ -8,6 +9,7 @@ public class Arrow : MonoBehaviour, IReleasable
     private float _damage;
     private bool _isTriggered;
     private float _lifetime;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,14 +31,23 @@ public class Arrow : MonoBehaviour, IReleasable
             _lifetime -= Time.deltaTime;
             return;
         }
+
         Release();
     }
 
     public void Release(float releaseDelay = 0f)
     {
         if (_isReleased) return;
+        if (!GameManager.Instance.isGameOnline)
+        {
+            PoolHandler.Instance.Release(transform, PoolType.Arrow);
+        }
+        else
+        {
+            if (GetComponent<PhotonView>().IsMine)
+                PhotonNetwork.Destroy(gameObject);
+        }
 
-        PoolHandler.Instance.Release(transform, PoolType.Arrow);
         _isReleased = true;
     }
 
@@ -44,11 +55,12 @@ public class Arrow : MonoBehaviour, IReleasable
     {
         if (_isTriggered) return;
 
-        if (other.transform.TryGetComponent(out IDamagableEnemy iDamagableEnemy))
+        if (other.transform.TryGetComponent(out IDamagable idamagable))
         {
             _isTriggered = true;
-            iDamagableEnemy.GetDamage(_damage);
+            idamagable.GetDamage(_damage);
             Release();
         }
     }
+
 }

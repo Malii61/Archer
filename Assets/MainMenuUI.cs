@@ -10,7 +10,7 @@ public class MainMenuUI : MonoBehaviour
     void Start()
     {
         playBtn.onClick.AddListener(() => SceneLoader.LoadScene(SceneLoader.Scene.GameScene));
-        ADController.Instance.ShowBanner();
+        // ADController.Instance.ShowBanner();
         loginBtn.onClick.AddListener(() => MenuSwitchScreenHandler.Instance.Open(Menu.Login));
         loginBackBtn.onClick.AddListener(() => MenuSwitchScreenHandler.Instance.Open(Menu.MainMenu));
         registerBtn.onClick.AddListener(() => MenuSwitchScreenHandler.Instance.Open(Menu.Register));

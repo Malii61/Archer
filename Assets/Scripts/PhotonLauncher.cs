@@ -22,46 +22,46 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     void Awake()
     {
         PV = GetComponent<PhotonView>();
-        Instance = this;
+        Instance = this; 
     }
 
     public void Connect()
     {
         Debug.Log("Connecting to Master");
-        PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.ConnectUsingSettings(); // Connect to Photon Master server.
     }
 
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected to Master");
         if (!PhotonNetwork.InLobby)
-            PhotonNetwork.JoinLobby();
+            PhotonNetwork.JoinLobby(); // Join the lobby after connecting to the Master server.
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public override void OnJoinedLobby()
     {
-        MenuSwitchScreenHandler.Instance.Open(Menu.OnlineLobby);
+        MenuSwitchScreenHandler.Instance.Open(Menu.OnlineLobby); // Open Online Lobby menu on successful lobby join.
     }
 
     public void ChangeRoomName(string name)
     {
-        roomNameInputField.text = name;
+        roomNameInputField.text = name; // Update room name input field.
     }
 
     public void CreateRoom()
     {
         Photon.Realtime.RoomOptions ropts = new Photon.Realtime.RoomOptions()
             { IsOpen = true, IsVisible = true, MaxPlayers = 2 };
-        PhotonNetwork.CreateRoom(roomNameInputField.text, ropts);
+        PhotonNetwork.CreateRoom(roomNameInputField.text, ropts); // Create a room with specified options.
         MenuSwitchScreenHandler.Instance.Open(Menu.Loading);
     }
 
     public override void OnJoinedRoom()
     {
-        MenuSwitchScreenHandler.Instance.Open(Menu.OnlineGameRoom);
+        MenuSwitchScreenHandler.Instance.Open(Menu.OnlineGameRoom); // Open Online Game Room menu on successful room join.
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
-
+        startGameButton.SetActive(PhotonNetwork.IsMasterClient);
         var players = PhotonNetwork.PlayerList;
 
         foreach (Transform child in playerListContent)
@@ -77,55 +77,47 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
     public override void OnMasterClientSwitched(Photon.Realtime.Player newMasterClient)
     {
-        startGameButton.SetActive(PhotonNetwork.IsMasterClient);
-    }
-
-    public override void OnCreatedRoom()
-    {
-        if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("password", out object value))
-            Debug.Log((string)value);
+        startGameButton.SetActive(PhotonNetwork.IsMasterClient); // Activate start game button for the master client.
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
-        errorText.text = "Room Creation Failed: " + message;
+        errorText.text = "Room Creation Failed: " + message; 
         Debug.LogError("Room Creation Failed: " + message);
-        MenuSwitchScreenHandler.Instance.Open(Menu.Error);
+        MenuSwitchScreenHandler.Instance.Open(Menu.Error); 
     }
 
     public void StartGame()
     {
-        PhotonNetwork.LoadLevel(1);
-        Cursor.lockState = CursorLockMode.Locked;
+        PhotonNetwork.LoadLevel(2); // Load the game scene.
     }
 
     public void LeaveLobby()
     {
-        PhotonNetwork.Disconnect();
-        MenuSwitchScreenHandler.Instance.Open(Menu.Loading);
+        PhotonNetwork.Disconnect(); // Disconnect from Photon.
+        MenuSwitchScreenHandler.Instance.Open(Menu.Loading); 
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        MenuSwitchScreenHandler.Instance.Open(Menu.MainMenu);
+        MenuSwitchScreenHandler.Instance.Open(Menu.MainMenu); // Open Main Menu on disconnection.
     }
 
     public void LeaveRoom()
     {
-        PhotonNetwork.LeaveRoom();
-        MenuSwitchScreenHandler.Instance.Open(Menu.Loading);
+        PhotonNetwork.LeaveRoom(); 
+        MenuSwitchScreenHandler.Instance.Open(Menu.Loading); 
     }
 
     public void JoinRoom(RoomInfo info)
     {
         PhotonNetwork.JoinRoom(info.Name);
-        MenuSwitchScreenHandler.Instance.Open(Menu.Loading);
+        MenuSwitchScreenHandler.Instance.Open(Menu.Loading); 
     }
 
+    // Commented out code, needs further context to provide appropriate comments.
     // public override void OnLeftRoom()
     // {
-    //     // if (SceneManager.GetActiveScene().name == SceneLoader.Scene.GameScene.ToString())
-    //     //     SceneManager.LoadScene(SceneLoader.Scene.MenuScene.ToString());
     //     MenuSwitchScreenHandler.Instance.Open(Menu.OnlineLobby);
     // }
 
@@ -153,7 +145,7 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        errorText.text = "Joined room Failed: " + message;
-        MenuSwitchScreenHandler.Instance.Open(Menu.Error);
+        errorText.text = "Joined room Failed: " + message; // Display an error message on room join failure.
+        MenuSwitchScreenHandler.Instance.Open(Menu.Error); // Open Error menu.
     }
 }

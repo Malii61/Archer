@@ -33,13 +33,15 @@ public class GameInput : MonoBehaviour
     {
         inputActions.Dispose();
     }
+    // Method to get the normalized movement vector based on the platform
     public Vector2 GetMovementVectorNormalized()
     {
         if (Application.platform == RuntimePlatform.Android)
         {
-            return MobileMoveInput.movementInput.normalized;
+            // Normalize and scale the movement input for Android
+            return MobileMoveInput.movementInput.normalized / 3.5f;
         }
-
+        // Get the movement input from the new Input System and normalize it
         Vector2 inputVector = inputActions.Player.Movement.ReadValue<Vector2>();
 
         inputVector = inputVector.normalized;
@@ -47,9 +49,4 @@ public class GameInput : MonoBehaviour
         return inputVector;
     }
 
-    public Vector2 GetLook()
-    {
-        Vector2 lookVector = inputActions.Player.Look.ReadValue<Vector2>();
-        return lookVector;
-    }
 }

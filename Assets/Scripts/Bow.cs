@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using Photon.Pun;
 using UnityEngine;
 
 public class Bow : MonoBehaviour, IUsable
@@ -13,13 +15,24 @@ public class Bow : MonoBehaviour, IUsable
 
     private void Start()
     {
-        PoolHandler.Instance.Create(arrowPrefab, PoolType.Arrow);
+        if (!GameManager.Instance.isGameOnline)
+            PoolHandler.Instance.Create(arrowPrefab, PoolType.Arrow);
     }
 
     public void Use(float damage = 0)
     {
         _animatable.Animate();
-        var arrow = PoolHandler.Instance.Get(PoolType.Arrow);
+        Transform arrow;
+        if (!GameManager.Instance.isGameOnline)
+        {
+            arrow = PoolHandler.Instance.Get(PoolType.Arrow);
+        }
+        else
+        {
+            arrow = PhotonNetwork
+                .Instantiate(Path.Combine("PhotonPrefabs", "OnlineArrow"), Vector3.zero, Quaternion.identity)
+                .transform;
+        }
         arrow.rotation = transform.rotation;
         arrow.position = transform.position;
         arrow.GetComponent<Arrow>().Initialize(damage, 3, 5f);

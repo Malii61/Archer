@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class BasicAttackHandler : MonoBehaviour
@@ -12,14 +13,28 @@ public class BasicAttackHandler : MonoBehaviour
         aimTransform = GetComponent<PlayerAimController>().aimTransform;
         _basicAttackSkill = Player.Instance.GetPlayerBasicAttackSkill();
         _attackTimer = _basicAttackSkill.cooldown;
-        var basicAttackPrfb = Instantiate(_basicAttackSkill.skillPrefab, aimTransform);
-        basicAttackPrfb.localPosition = _basicAttackSkill.offset;
-        _iUsable = basicAttackPrfb.GetComponent<IUsable>();
+        if (!GameManager.Instance.isGameOnline)
+        {
+            var basicAttackPrfb = Instantiate(_basicAttackSkill.skillPrefab, aimTransform);
+            basicAttackPrfb.localPosition = _basicAttackSkill.offset;
+            _iUsable = basicAttackPrfb.GetComponent<IUsable>();
+        }
+        else
+        {
+            _iUsable = GetComponentInChildren<IUsable>();
+        }
     }
 
     private void Update()
     {
-        if(!GameManager.Instance.isGameStarted) return;
+        if (!GameManager.Instance.isGameStarted) return;
+
+        if (GameManager.Instance.isGameOnline)
+        {
+            if (!GetComponent<PhotonView>().IsMine)
+                return;
+        }
+
         _attackTimer -= Time.deltaTime;
         if (_attackTimer <= 0)
         {
