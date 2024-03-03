@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
-     [SerializeField] private Transform statisticsContent;
+    [SerializeField] private Transform statisticsContent;
     [SerializeField] private TextMeshProUGUI coinTMP, killedEnemyTMP, survivedTimeTMP;
-    [SerializeField] private Button tryAgainBtn, backMenuBtn,showLeaderboardBtn;
+    [SerializeField] private Button tryAgainBtn, backMenuBtn, showLeaderboardBtn;
     private int coinCount, killedEnemyCount;
     [SerializeField] private TextMeshProUGUI youDiedTMP;
+
     private void Start()
     {
         ItemDropManager.Instance.OnCoinCollected += OnCoinCollected;
@@ -29,11 +30,13 @@ public class GameOverUI : MonoBehaviour
     {
         killedEnemyCount++;
     }
+
     public void Show()
     {
         youDiedTMP.enabled = true;
-        Invoke(nameof(ShowStatictics),1.5f);
+        Invoke(nameof(ShowStatictics), 1.5f);
     }
+
     private void HideStatictics()
     {
         statisticsContent.gameObject.SetActive(false);
@@ -41,7 +44,11 @@ public class GameOverUI : MonoBehaviour
 
     private void ShowStatictics()
     {
-        // ADController.Instance.ShowInterstitial();
+        if (ADController.Instance != null)
+        {
+            ADController.Instance.ShowInterstitial();
+        }
+        
         youDiedTMP.enabled = false;
         statisticsContent.gameObject.SetActive(true);
         string survivedTimeText = Time.time < 60
